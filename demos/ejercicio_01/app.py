@@ -1,16 +1,23 @@
-#Muestra paginas y se conecta con base de datos
 import web
-#Permite saber la direccion de la pagina
 urls = (
     '/', 'Index',
+    '/clientes', 'Clientes',
+    '/usuario','Usuario',
 )
-#Hace que todo funcione
 app = web.application(urls, globals())
-render = web.template.render('templates')
+render = web.template.render('templates/')
 
 class Index:
     def GET(self):
-        return render.index()
-#Ejecuta el servidor
+        return (render.index())
+    
+class Clientes:
+    def GET(self):
+        return (render.clientes())
+    
+class Usuario:
+    def GET(self):
+        return (render.usuario())   
+    
 if __name__ == "__main__":
     app.run()
